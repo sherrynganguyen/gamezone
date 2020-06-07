@@ -3,7 +3,7 @@ import { StyleSheet, View, Text } from 'react-native';
 import { globalStyles } from '../styles/global';
 
 export default ReviewDetails = () => {
-  retunr (
+  return (
     <View style={globalStyles.container}>
       <Text> Review Details Screen</Text>
     </View>
