@@ -3,7 +3,8 @@ import { StyleSheet, View, Text } from 'react-native';
 import { globalStyles } from '../styles/global';
 
 export default function ReviewDetails({ route, navigation }) {
-  const { title, rating, body } = route.params.params.item
+  console.log(route.params)
+  const { title, rating, body } = route.params.item
   return (
     <View style={globalStyles.container}>
       <Text>{title}</Text>

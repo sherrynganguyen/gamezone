@@ -24,8 +24,8 @@ export default function App() {
     return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="ReviewDetails" component={ReviewDetails} />
+        <Stack.Screen name="Home" component={Home} option={{title:'Home'}}/>
+        <Stack.Screen name="ReviewDetails" component={ReviewDetails} option={{title:'Review'}}/>
       </Stack.Navigator> 
     </NavigationContainer>
     );
