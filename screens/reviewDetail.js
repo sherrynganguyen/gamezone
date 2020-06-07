@@ -2,10 +2,13 @@ import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { globalStyles } from '../styles/global';
 
-export default ReviewDetails = () => {
+export default function ReviewDetails({ route, navigation }) {
+  const { title, rating, body } = route.params.params.item
   return (
     <View style={globalStyles.container}>
-      <Text> Review Details Screen</Text>
+      <Text>{title}</Text>
+      <Text>{rating}</Text>
+      <Text>{body}</Text>
     </View>
   )
 }
