@@ -1,13 +1,9 @@
-// import 'react-native-gesture-handler';
 import React, { useState } from 'react';
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 
-// import Navigator from './routes/homeStack';
-import Home from './screens/home';
-import ReviewDetails from './screens/reviewDetail';
+import drawerNavigator from './routes/drawer';
+
 const getFonts = () => {
   return Font.loadAsync({
     'roboto_regular': require('./assets/fonts/RobotoCondensed-Regular.ttf'),
@@ -16,38 +12,11 @@ const getFonts = () => {
   })
 };
 
-const Stack = createStackNavigator();
-
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
   if (fontsLoaded) {
     return (
-    <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName="Home"
-        screenOptions={{
-          headerStyle: {
-            backgroundColor: '#4F6742',
-          },
-          headerTintColor: '#fff',
-        }}
-      >
-        <Stack.Screen
-          name="Home"
-          component={Home}
-          options={{
-            title:'Home',
-          }}
-        />
-        <Stack.Screen
-          name="ReviewDetails"
-          component={ReviewDetails}
-          options={{
-            title:'Review',
-          }}
-        />
-      </Stack.Navigator> 
-    </NavigationContainer>
+      drawerNavigator()
     );
   } else {
     return (
