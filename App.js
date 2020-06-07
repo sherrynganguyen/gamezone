@@ -1,19 +1,28 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import * as Font from 'expo-font';
+import Home from './screens/home';
+import { AppLoading } from 'expo';
+const getFonts = () => {
+  return Font.loadAsync({
+    'roboto_regular': require('./assets/fonts/RobotoCondensed-Regular.ttf'),
+    'roboto_light': require('./assets/fonts/RobotoCondensed-Light.ttf'),
+    'roboto_bold': require('./assets/fonts/RobotoCondensed-Bold.ttf'),
+  })
+};
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
-}
+  const [fontsLoaded, setFontsLoaded] = useState(false);
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  if (fontsLoaded) {
+    return (
+      <Home/>
+    );
+  } else {
+    return (
+      <AppLoading
+        startAsync={getFonts}
+        onFinish={() => setFontsLoaded(true)}
+      />
+    )
+  }
+}
