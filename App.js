@@ -23,9 +23,29 @@ export default function App() {
   if (fontsLoaded) {
     return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={Home} option={{title:'Home'}}/>
-        <Stack.Screen name="ReviewDetails" component={ReviewDetails} option={{title:'Review'}}/>
+      <Stack.Navigator
+        initialRouteName="Home"
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: '#4F6742',
+          },
+          headerTintColor: '#fff',
+        }}
+      >
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{
+            title:'Home',
+          }}
+        />
+        <Stack.Screen
+          name="ReviewDetails"
+          component={ReviewDetails}
+          options={{
+            title:'Review',
+          }}
+        />
       </Stack.Navigator> 
     </NavigationContainer>
     );
