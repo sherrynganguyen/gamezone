@@ -10,11 +10,13 @@ const reviewSchema = yup.object().shape({
   title: yup
     .string()
     .required('*Required')
-    .min(4, 'Too Short!'),
+    .min(4, 'Too Short!')
+    .max(30, 'Too Long!'),
   body: yup
     .string()
     .required('*Required')
-    .min(8, 'Too Short!'),
+    .min(8, 'Too Short!')
+    .max(100, 'Too Long!!'),
   rating: yup
     .number()
     .required('*Required')
@@ -34,7 +36,6 @@ export default function ReviewForm({ addReview }) {
         }}
         validationSchema={reviewSchema}
         onSubmit={(values, actions) => {
-          console.log(values)
           actions.resetForm();
           addReview(values);
         }}
@@ -55,6 +56,7 @@ export default function ReviewForm({ addReview }) {
               onChangeText={props.handleChange('body')}
               value={props.values.body}
               onBlur={props.handleBlur('body')}
+              multiline minHeight={80}
             />
             <Text style={globalStyles.errorText}>{props.touched.body && props.errors.body}</Text>
             <TextInput
