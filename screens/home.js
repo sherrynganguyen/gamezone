@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, FlatList, TouchableOpacity, Modal } from 'react-native';
+import { StyleSheet, View, Text, FlatList, TouchableOpacity, TouchableWithoutFeedback, Keyboard, Modal } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 
 import { globalStyles } from '../styles/global';
@@ -14,18 +14,28 @@ export default function Home({ navigation }) {
     {title:'The Last Empress', rating: 3, body: 'ad ae dsfaf', key: '4'},
   ])
   const [modelOpen, setModalOpen] = useState(false);
+  const addReview = (review) => {
+    review.key = Math.random().toString();
+    setReviews((currentReviews) => {
+      return([review, ...currentReviews])
+    });
+    setModalOpen(false);
+  };
   return (
     <BackgroundImage>
       <Modal visible={modelOpen} animationType='slide'>
-        <View style={styles.modalContent}>
-          <MaterialIcons
-            name="close"
-            size={24}
-            style={{...styles.modalToggle, ...styles.modalClose}}
-            onPress={() => setModalOpen(false)}
-          />
-          <ReviewForm/>
-        </View>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <View style={styles.modalContent}>
+            <MaterialIcons
+              name="close"
+              size={24}
+              style={{...styles.modalToggle, ...styles.modalClose}}
+              onPress={() => setModalOpen(false)}
+            />
+            <ReviewForm addReview={addReview}/>
+          </View>
+
+        </TouchableWithoutFeedback>
       </Modal>
       <MaterialIcons
         name="add"
