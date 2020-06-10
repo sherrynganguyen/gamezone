@@ -1,6 +1,7 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import About from "../screens/about";
+import Header from '../shared/header';
 
 const Stack = createStackNavigator()
 
@@ -9,7 +10,7 @@ export default function aboutNavigator() {
     <Stack.Navigator initialRouteName='About'
     screenOptions={{
       headerStyle: {
-        backgroundColor: '#999',
+        backgroundColor: '#4F6742',
       },
       headerTintColor: '#fff',
       headerTitleStyle: {
@@ -20,9 +21,9 @@ export default function aboutNavigator() {
       <Stack.Screen 
           name='About' 
           component={About} 
-          options={{ 
-            title: 'About',
-          }}
+          options={({navigation}) => ({
+            headerTitle: () => <Header navigation={navigation} name="About"/>,
+          })}
       />
     </Stack.Navigator>
   );
