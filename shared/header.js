@@ -8,7 +8,7 @@ export default function Header({ navigation, name }) {
   }
   return (
     <View style={styles.header}>
-      <MaterialIcons name="menu" onPress={openMenu} size={38} style={styles.icon}/>
+      <MaterialIcons name="menu" onPress={openMenu} size={28} style={styles.icon}/>
       <View>
         <Text style={styles.headerText}>{name}</Text>
       </View>
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     height: '100%',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
   },
   headerText: {
     fontWeight: 'bold',
@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
   },
   icon: {
     position: 'absolute',
-    left: 16
+    left: 0,
+    color: "#FFFFFF"
   }
 })
