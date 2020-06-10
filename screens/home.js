@@ -74,7 +74,9 @@ const styles = StyleSheet.create({
     alignSelf: 'center'
   },
   modalClose: {
-    marginTop: 20,
+    margin: 7,
     marginBottom: 0,
+    borderWidth: 0,
+    alignSelf: 'flex-end'
   }
 })
