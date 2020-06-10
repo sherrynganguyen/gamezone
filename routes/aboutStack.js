@@ -22,7 +22,7 @@ export default function aboutNavigator() {
           name='About' 
           component={About} 
           options={({navigation}) => ({
-            headerTitle: () => <Header navigation={navigation} name="About"/>,
+            headerTitle: () => <Header navigation={navigation} title="About"/>,
           })}
       />
     </Stack.Navigator>

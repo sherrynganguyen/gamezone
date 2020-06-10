@@ -22,7 +22,7 @@ export default function homeNavigator() {
           name="Home"
           component={Home}
           options={({navigation}) => ({
-            headerTitle: () => <Header navigation={navigation} name='Game Zone'/>,
+            headerTitle: () => <Header navigation={navigation} title='Game Zone'/>,
           })}
         />
         <Stack.Screen
