@@ -1,11 +1,12 @@
 import React from 'react';
-import { StyleSheet, View, Text, Button } from 'react-native';
+import { View, Text } from 'react-native';
 import { globalStyles } from '../styles/global';
+import BackgroundImage from '../shared/backgroundImage';
 
 export default function About() {
   return (
-    <View style={globalStyles.container}>
+    <BackgroundImage style={globalStyles.container}>
       <Text> About Screen</Text>
-    </View>
+    </BackgroundImage>
   )
 }
