@@ -21,7 +21,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     marginHorizontal: 4,
     marginVertical: 6,
-    // padding: 10,
   },
   cardContent: {
     marginVertical: 10,
