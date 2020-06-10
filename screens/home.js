@@ -5,7 +5,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { globalStyles } from '../styles/global';
 import Card from '../shared/card';
 import BackgroundImage from '../shared/backgroundImage';
-
+import ReviewForm from './reviewForm';
 export default function Home({ navigation }) {
   const [reviews, setReviews] = useState([
     {title:'The 100', rating: 4, body: 'good show', key: '1'},
@@ -24,7 +24,7 @@ export default function Home({ navigation }) {
             style={{...styles.modalToggle, ...styles.modalClose}}
             onPress={() => setModalOpen(false)}
           />
-          <Text>Hello</Text>
+          <ReviewForm/>
         </View>
       </Modal>
       <MaterialIcons
